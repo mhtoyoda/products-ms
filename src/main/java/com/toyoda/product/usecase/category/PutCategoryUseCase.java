@@ -22,6 +22,7 @@ public class PutCategoryUseCase {
         Category category = service.findCategoryById(id).orElseThrow(() -> new CategoryNotFoundException("Category not found"));
         mapper.categoryMapperByDto(category, categoryDto);
         service.updateCategory(category);
+        updateProduct(category);
     }
 
     private void updateProduct(Category category) {
